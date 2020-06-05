@@ -1,0 +1,35 @@
+* {
+  *margin: 0px auto !important;
+  padding: 0px auto !important;
+}
+.side-nav {
+  padding-left: 0px !important;
+  background-color: #156993;
+}
+
+.side-nav-item {
+  list-style: none;
+  padding: 4px 4px;
+  color: white;
+  text-align: left;
+  font-size: small;
+  border-bottom: 3px solid #325e8d;
+}
+
+.side-nav-heading {
+  background-color: #e74b23;
+  color: white;
+  padding: 4px 4px;
+  font-size: small;
+  font-weight: 400;
+}
+
+.side-nav-item a {
+  text-decoration: none !important;
+  color: white;
+  display: block;
+}
+
+.side-nav-item a:hover {
+  color: white;
+}

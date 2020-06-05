@@ -1,0 +1,57 @@
+.logo-section {
+  display: inline-block;
+}
+
+logo-main {
+  margin-bottom: 0px !important;
+}
+.logo-main li {
+  list-style: none;
+}
+
+.user-info-log {
+  display: inline-block;
+}
+.user-info-log ul {
+  padding-inline-start: 0px;
+}
+
+.user-info-log ul li {
+  list-style: none;
+  text-align: right;
+  padding-right: 4px;
+}
+
+.user-info-log ul li span {
+  color: white;
+  font-size: small;
+}
+
+.btn-logout {
+  background-color: #e74b23;
+  color: white;
+  border: none;
+  font-size: small;
+}
+.header-main {
+  background: rgb(82, 162, 179);
+  background: linear-gradient(
+    90deg,
+    rgb(140, 190, 201) 3%,
+    rgb(20, 88, 143) 29%,
+    rgba(17, 69, 112, 1) 58%,
+    #114570 94%
+  );
+}
+
+@media screen and (max-width: 480px) {
+  .logo-main {
+    padding-inline-start: 0px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .logo-main {
+    padding-inline-start: 0px;
+  }
+}
