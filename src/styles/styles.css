@@ -32,9 +32,20 @@
 .btn-mask-pwd{
     height: 37px;
     width: 38px;
+    background-image: url('../assets/images/mask.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 
 }
 
 .df-row{
     display: flex;
+}
+.dint-match{
+    color: rgb(241, 146, 146);
+    text-align: center;
+}
+
+@keyframes pwd{
+  
 }
