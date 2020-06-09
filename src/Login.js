@@ -30,18 +30,43 @@ function Login(props) {
     return <Redirect to="/dashboard" />
   }
   return (
-
-    <div className="auth-wrapper">
-      <div className="auth-inner">
-        <div>
-          <h3>Log In</h3>
-          <div className="form-group">
-            <label>User Name</label>
-            <input type="text" {...username} autoComplete="new-password" className="form-control" placeholder="Enter User Name" />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input type="password" {...password} autoComplete="new-password" className="form-control" placeholder="Enter password" />
+    <div className="">
+      <div className="auth-wrapper">
+        <div className="auth-inner ">
+          <div>
+            <h3>Log In</h3>
+            <div className="form-group">
+              <label>User Name</label>
+              <input
+                type="text"
+                {...username}
+                autoComplete="new-password"
+                className="form-control"
+                placeholder="Enter User Name"
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                {...password}
+                autoComplete="new-password"
+                className="form-control"
+                placeholder="Enter password"
+              />
+            </div>
+            <input
+              type="button"
+              className="btn btn-primary btn-block"
+              value={loading ? "Loading..." : "Login"}
+              onClick={handleLogin}
+              disabled={loading}
+              style={{ backgroundColor: "#114570" }}
+            />
+            <br />
+            <p className="forgot-password text-right">
+              Forgot <a href="#">password?</a>
+            </p>
           </div>
           <input type="button" className="btn btn-primary btn-block" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
           <p className="forgot-password text-right">

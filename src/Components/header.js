@@ -39,7 +39,7 @@ class Header extends Component {
           }
             {getUser() == null &&
               <ul>
-                  <li className="nav-item"><Link className="nav-link" to={"/login"}>Login</Link></li>
+                  <li className="nav-item"><Link className="nav-link" to={"/login"} >Login</Link></li>
                   
               </ul>
             }
