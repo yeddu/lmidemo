@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { setUserSession, getUser } from "./Utils/Common";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 function Login(props) {
   const [loading, setLoading] = useState(false);
@@ -71,7 +71,7 @@ function Login(props) {
             />
             <br />
             <p className="forgot-password text-right">
-              Forgot <Link to={"/resetPWD"}> Password</Link>
+              Forgot <a href="#">password?</a>
             </p>
           </div>
         </div>

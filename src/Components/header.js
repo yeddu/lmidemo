@@ -41,7 +41,7 @@ class Header extends Component {
                 />
               </li>
               <li>
-                <span>Welcome ,{getUser().name}</span>
+                <span>Welcome {getUser().name}</span>
               </li>
               <li>
                 <span>Last Logged :{this.state.lastLogged}</span>
@@ -51,7 +51,11 @@ class Header extends Component {
           {getUser() == null && (
             <ul>
               <li className="nav-item">
-                <Link className="nav-link d-inline" to={"/login"}>
+                <Link
+                  className="nav-link d-inline"
+                  to={"/login"}
+                  style={{ backgroundColor: "#e74b23" }}
+                >
                   Login
                 </Link>
               </li>

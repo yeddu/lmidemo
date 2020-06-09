@@ -4,15 +4,27 @@ import "../styles/dashboard.css";
 import NavBar from "./navbar";
 
 class Dashboard extends Component {
-  state = {};
+  state = {
+    displaySideNav: false,
+  };
+
+  togglesidenav = ({ displaySideNav: prevstate } = this.state) => {
+    this.setState({ displaySideNav: !prevstate });
+    console.log(prevstate);
+  };
+
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar togglenav={this.togglesidenav} />
         <div className="container-fluid">
           <div className="row">
             <div
-              className="col-2"
+              className={
+                !this.state.displaySideNav
+                  ? "col-2 side-nav-main"
+                  : "col-4 side-nav-main" + "side-nav-main-display"
+              }
               style={{
                 padding: "0px",
                 height: "100vh",
@@ -32,7 +44,7 @@ class Dashboard extends Component {
                 </li>
               </ul>
             </div>
-            <div className="col"></div>
+            <div className="col" style={{ height: "100vh" }}></div>
           </div>
         </div>
       </div>

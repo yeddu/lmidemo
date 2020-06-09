@@ -2,6 +2,10 @@
   *margin: 0px auto !important;
   padding: 0px auto !important;
 }
+
+.side-nav-main {
+  position: absolute;
+}
 .side-nav {
   padding-left: 0px !important;
   background-color: #156993;
@@ -32,4 +36,14 @@
 
 .side-nav-item a:hover {
   color: white;
+}
+
+@media only screen and (max-width: 720px) {
+  .side-nav-main {
+    display: none;
+  }
+
+  .side-nav-main-display {
+    display: block;
+  }
 }
