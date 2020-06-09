@@ -12,8 +12,8 @@ import Dashboard from './Components/dashboard';
 import Home from './Home';
 import PrivateRoute from './Utils/PrivateRoute';
 import PublicRoute from './Utils/PublicRoute';
-import NotFoundPage from "./notFoundPage";
-import  ResetPWD from './Components/ResetPWD';
+import NotFoundPage from "./notFoundPage"
+import SendMail from './Components/sendmail'
 
 import { getUser, getToken, removeUserSession, setUserSession } from './Utils/Common';
 
@@ -46,9 +46,9 @@ function App() {
       <Switch>
           <Route exact path="/" component={Login} />
           <PublicRoute path="/login" component={Login} />
-          <PublicRoute path="/resetPWD" component={ResetPWD}/>
           <Route path="/sign-up" component={SignUp} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/sendmail" component={SendMail}/>
         <Route path="*" component={NotFoundPage} />
       </Switch>
     <Footer />

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-import { getUser, removeUserSession } from "../Utils/Common";
+import { getUser, removeUserSession } from '../Utils/Common';
 
 function NavBar(props) {
   // const handleLogout = () => {
@@ -9,24 +9,13 @@ function NavBar(props) {
   //   props.history.push('/login');
   // }
   return (
-    <div className="">
-      <nav
-        className="navbar navbar-expand-lg navbar-expand-sm navbar-light p-0 border-top border-bottom border-dark"
-        style={{ backgroundColor: "#114570" }}
-      >
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item ">
-            <Link className="nav-link border-right border-light">gjgjg</Link>
-          </li>
-          <li className="nav-item ">
-            <Link className="nav-link border-right border-light">gjgjg</Link>
-          </li>
-          <li className="nav-item ">
-            <Link className="nav-link border-right border-light">gjgjg</Link>
-          </li>
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light">
+        <ul className="navbar-nav ml-auto">
+          <li></li>
         </ul>
       </nav>
-    </div>
+    </div >
   );
 }
 export default withRouter(NavBar);

@@ -27,7 +27,6 @@
 .side-nav-item a {
   text-decoration: none !important;
   color: white;
-  display: block;
 }
 
 .side-nav-item a:hover {
