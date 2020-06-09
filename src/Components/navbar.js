@@ -19,7 +19,8 @@ class NavBar extends Component {
   }
   toggleProfileMenu = () => {
     this.setState({ displayProfileSubmenu: !this.state.displayProfileSubmenu });
-  };
+  }; 
+
 
   render() {
     return (
@@ -48,26 +49,26 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link border-right border-light">
+              <Link className="nav-link border-right border-light" to="">
                 Generate Quote
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link border-right border-light">
+              <Link className="nav-link border-right border-light" to="">
                 Renew Policy
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link border-right border-light">
+              <Link className="nav-link border-right border-light" to="">
                 Process Claim
               </Link>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link">
+              <Link className="nav-link"  to=""> 
                 <i
-                  class="fa fa-user-circle"
+                  className="fa fa-user-circle"
                   onClick={() => {
                     this.toggleProfileMenu();
                   }}
@@ -93,4 +94,5 @@ class NavBar extends Component {
       </div>
     );
   }
+}
 export default NavBar;

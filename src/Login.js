@@ -68,10 +68,6 @@ function Login(props) {
               Forgot <a href="#">password?</a>
             </p>
           </div>
-          <input type="button" className="btn btn-primary btn-block" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
-          <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
-          </p>
         </div>
       </div>
     </div>
