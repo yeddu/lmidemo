@@ -3,7 +3,7 @@ import axios from "axios";
 import { setUserSession, getUser } from "./Utils/Common";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Redirect, Link } from "react-router-dom";
-
+import LoginUsingOTP from './Components/LoginUsingOTP'
 function Login(props) {
   const [loading, setLoading] = useState(false);
   const username = useFormInput("");
@@ -74,6 +74,8 @@ function Login(props) {
               Forgot <Link to={"/resetPWD"}> Password</Link>
             </p>
           </div>
+           
+           <LoginUsingOTP />
         </div>
       </div>
     </div>

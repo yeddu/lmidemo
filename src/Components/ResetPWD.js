@@ -118,6 +118,7 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
      render() {
          
         return (
+            <div className="resetPwd">
             <div className="auth-wrapper mb-3">
              
             <div className=" auth-inner">
@@ -181,7 +182,7 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
                 <div id="timer" className="time"></div>
                 
             </div>
-              
+            </div>
         </div>
         )
     }

@@ -46,7 +46,7 @@ function App() {
       <Switch>
           <Route exact path="/" component={Login} />
           <PublicRoute path="/login" component={Login} />
-          <PublicRoute path="/resetPWD" component={ResetPWD}/>
+          <Route path="/resetPWD" component={ResetPWD}/>
           <Route path="/sign-up" component={SignUp} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <Route path="*" component={NotFoundPage} />
