@@ -71,7 +71,7 @@ function Login(props) {
             />
             <br />
             <p className="forgot-password text-right">
-              Forgot <a href="#">password?</a>
+              Forgot <Link to="/resetPWD">password?</Link>
             </p>
           </div>
 

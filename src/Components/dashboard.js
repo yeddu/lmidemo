@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
 import NavBar from "./navbar";
+import { Switch, Route } from "react-router-dom";
+import PrivateRoute from "../Utils/PrivateRoute";
+import Users from "./users";
+import SideNav from "./sideNav";
 
 class Dashboard extends Component {
   state = {
@@ -15,36 +19,19 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div className="w-100">
         <NavBar togglenav={this.togglesidenav} />
         <div className="container-fluid">
           <div className="row">
-            <div
-              className={
-                !this.state.displaySideNav
-                  ? "col-2 side-nav-main"
-                  : "col-4 side-nav-main" + "side-nav-main-display"
-              }
-              style={{
-                padding: "0px",
-                height: "100vh",
-                backgroundColor: "#F0F2F1",
-              }}
-            >
-              <h5 className="side-nav-heading m-0">Menu</h5>
-              <ul className="side-nav">
-                <li className="side-nav-item">
-                  <Link to="">NavLink1</Link>
-                </li>
-                <li className="side-nav-item">
-                  <Link to="">NavLink1</Link>
-                </li>
-                <li className="side-nav-item">
-                  <Link to="">NavLink1</Link>
-                </li>
-              </ul>
+            <SideNav displaySideNav={this.state.displaySideNav} />
+            <div className="col container" style={{ height: "100vh" }}>
+              <Switch>
+                <PrivateRoute
+                  path="/dashboard/veiwUsers"
+                  component={Users}
+                ></PrivateRoute>
+              </Switch>
             </div>
-            <div className="col" style={{ height: "100vh" }}></div>
           </div>
         </div>
       </div>

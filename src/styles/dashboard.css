@@ -3,9 +3,6 @@
   padding: 0px auto !important;
 }
 
-.side-nav-main {
-  position: absolute;
-}
 .side-nav {
   padding-left: 0px !important;
   background-color: #156993;
@@ -45,5 +42,6 @@
 
   .side-nav-main-display {
     display: block;
+    position: absolute;
   }
 }
