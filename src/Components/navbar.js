@@ -10,7 +10,6 @@ class NavBar extends Component {
   //   removeUserSession();
   //   props.history.push('/login');
   // }
-
   constructor(props) {
     super(props);
     this.state = {
