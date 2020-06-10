@@ -16,7 +16,7 @@ function NavBar(props) {
       >
         <ul className="navbar-nav mr-auto">
           <li className="nav-item ">
-            <Link className="nav-link border-right border-light">gjgjg</Link>
+            <Link className="nav-link border-right border-light">profile</Link>
           </li>
           <li className="nav-item ">
             <Link className="nav-link border-right border-light">gjgjg</Link>
