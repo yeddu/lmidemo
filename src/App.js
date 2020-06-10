@@ -23,6 +23,7 @@ import {
   setUserSession,
 } from "./Utils/Common";
 import UpdateUserPassword from "./Components/updatePassword";
+import ResetPWD from "./Components/ResetPWD";
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);
@@ -55,6 +56,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <PublicRoute path="/login" component={Login} />
+        <Route path="/resetPWD" component={ResetPWD} />
         <Route path="/sign-up" component={SignUp} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/editProfile" component={EditUserProfile} />
