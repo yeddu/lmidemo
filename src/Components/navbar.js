@@ -1,15 +1,16 @@
-import React, { Component, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React, { Component, useState } from "react";
+import { Link, withRouter } from "react-router-dom";
 import "../styles/Navbar.css";
-import { getUser, removeUserSession } from '../Utils/Common';
-import NotFoundPage from "../notFoundPage";
 
+import { getUser, removeUserSession } from "../Utils/Common";
+import NotFoundPage from "../notFoundPage";
 
 class NavBar extends Component {
   // const handleLogout = () => {
   //   removeUserSession();
   //   props.history.push('/login');
   // }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -18,8 +19,7 @@ class NavBar extends Component {
   }
   toggleProfileMenu = () => {
     this.setState({ displayProfileSubmenu: !this.state.displayProfileSubmenu });
-  }; 
-
+  };
 
   render() {
     return (
@@ -48,26 +48,26 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link border-right border-light" to="">
+              <Link className="nav-link border-right border-light">
                 Generate Quote
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link border-right border-light" to="">
+              <Link className="nav-link border-right border-light">
                 Renew Policy
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link border-right border-light" to="">
+              <Link className="nav-link border-right border-light">
                 Process Claim
               </Link>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link"  to=""> 
+              <Link className="nav-link">
                 <i
-                  className="fa fa-user-circle"
+                  class="fa fa-user-circle"
                   onClick={() => {
                     this.toggleProfileMenu();
                   }}

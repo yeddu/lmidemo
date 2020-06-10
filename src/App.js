@@ -7,14 +7,13 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import SignUp from "./Components/signup.component.js";
 import Header from "./Components/header";
-import Footer from "./Components/footer"
-import Login from './Login';
-import Dashboard from './Components/dashboard';
-import Home from './Home';
-import PrivateRoute from './Utils/PrivateRoute';
-import PublicRoute from './Utils/PublicRoute';
-import NotFoundPage from "./notFoundPage"
-import SendMail from './Components/sendmail'
+import Footer from "./Components/footer";
+import Login from "./Login";
+import Dashboard from "./Components/dashboard";
+import Home from "./Home";
+import PrivateRoute from "./Utils/PrivateRoute";
+import PublicRoute from "./Utils/PublicRoute";
+import NotFoundPage from "./notFoundPage";
 import EditUserProfile from "./Components/editProfile";
 
 import {
@@ -24,6 +23,7 @@ import {
   setUserSession,
 } from "./Utils/Common";
 import UpdateUserPassword from "./Components/updatePassword";
+import ResetPWD from "./Components/ResetPWD";
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);
@@ -54,13 +54,13 @@ function App() {
     <div>
       <Header />
       <Switch>
-          <Route exact path="/" component={Login} />
-          <PublicRoute path="/login" component={Login} />
-          <Route path="/sign-up" component={SignUp} />
-          <PrivateRoute path="/dashboard" component={Dashboard} />
-          <PrivateRoute path="/sendmail" component={SendMail}/>
-          <PrivateRoute path="/editProfile" component={EditUserProfile} />
-          <PrivateRoute path="/updatePassword" component={UpdateUserPassword} />
+        <Route exact path="/" component={Login} />
+        <PublicRoute path="/login" component={Login} />
+        <Route path="/resetPWD" component={ResetPWD} />
+        <Route path="/sign-up" component={SignUp} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/editProfile" component={EditUserProfile} />
+        <PrivateRoute path="/updatePassword" component={UpdateUserPassword} />
         <Route path="*" component={NotFoundPage} />
       </Switch>
       <Footer />

@@ -1,33 +1,39 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { setUserSession, getUser } from './Utils/Common';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { Redirect } from 'react-router-dom'
-import {API_ROOT,SIGIN} from './config/constants'
-
+import React, { useState } from "react";
+import axios from "axios";
+import { setUserSession, getUser } from "./Utils/Common";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { Redirect, Link } from "react-router-dom";
+import LoginUsingOTP from "./Components/LoginUsingOTP";
 function Login(props) {
   const [loading, setLoading] = useState(false);
-  const username = useFormInput('');
-  const password = useFormInput('');
+  const username = useFormInput("");
+  const password = useFormInput("");
   const [error, setError] = useState(null);
-  
+
   // handle button click of login form
   const handleLogin = async () => {
     setError(null);
     setLoading(true);
-    await axios.post(`${API_ROOT}${SIGIN}`, { username: username.value, password: password.value }).then(response => {
-      setLoading(false);
-      setUserSession(response.data.token, response.data.user);
-      props.history.push('/dashboard');
-    }).catch(error => {
-      setLoading(false);
-      if (error.response.status === 401) setError(error.response.data.message);
-      else setError("Something went wrong. Please try again later.");
-      props.history.push('/login');
-    });
-  }
+    await axios
+      .post("http://localhost:4000/users/signin", {
+        username: username.value,
+        password: password.value,
+      })
+      .then((response) => {
+        setLoading(false);
+        setUserSession(response.data.token, response.data.user);
+        props.history.push("/dashboard");
+      })
+      .catch((error) => {
+        setLoading(false);
+        if (error.response.status === 401)
+          setError(error.response.data.message);
+        else setError("Something went wrong. Please try again later.");
+        props.history.push("/login");
+      });
+  };
   if (getUser() != null) {
-    return <Redirect to="/dashboard" />
+    return <Redirect to="/dashboard" />;
   }
   return (
     <div className="">
@@ -65,25 +71,27 @@ function Login(props) {
             />
             <br />
             <p className="forgot-password text-right">
-              Forgot <a href="#">password?</a>
+              Forgot <Link to="/resetPWD">password?</Link>
             </p>
           </div>
+
+          <LoginUsingOTP />
         </div>
       </div>
     </div>
   );
 }
 
-const useFormInput = initialValue => {
+const useFormInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setValue(e.target.value);
-  }
+  };
   return {
     value,
-    onChange: handleChange
-  }
-}
+    onChange: handleChange,
+  };
+};
 
 export default Login;

@@ -6,9 +6,11 @@ class UpdateUserPassword extends Component {
     newPassword: "",
     confirmPassword: "",
     currentPassword: "",
+
     isInputValid: {
-      newPassword: false,
+      dummy: false,
       confirmPassword: false,
+      newPassword: false,
     },
     isTouched: {
       currentPassword: false,
@@ -19,7 +21,6 @@ class UpdateUserPassword extends Component {
 
   handleBlur = (e) => {
     const presentField = e.target.name;
-    const presentFieldValue = e.target.value;
 
     this.setState({
       isTouched: { ...this.state.isTouched, [presentField]: true },
@@ -57,6 +58,8 @@ class UpdateUserPassword extends Component {
           });
         }
         break;
+
+      default:
     }
   };
   render() {
@@ -97,8 +100,8 @@ class UpdateUserPassword extends Component {
                 onBlur={this.handleBlur}
                 value={this.state.newPassword}
               ></input>
-              {!this.state.isInputValid.newPassword &&
-              this.state.isTouched.newPassword ? (
+              {this.state.isTouched.newPassword === true &&
+              this.state.isInputValid.newPassword === false ? (
                 <small className="text-danger position-absolute">
                   Password didn't match the requirement
                 </small>
@@ -130,10 +133,10 @@ class UpdateUserPassword extends Component {
               <button
                 className="btn btn-primary mr-2"
                 disabled={
-                  !(
-                    this.state.isInputValid.newPassword &&
-                    this.state.isInputValid.confirmPassword
-                  )
+                  this.state.isInputValid.newPassword === true &&
+                  this.state.isInputValid.confirmPassword === true
+                    ? false
+                    : true
                 }
               >
                 Update Password
