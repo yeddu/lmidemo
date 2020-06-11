@@ -4,6 +4,8 @@ import axios from 'axios';
 import {setTimer} from '../Utils/Common';
 import {withRouter}from 'react-router-dom'
 
+import {mobileRegex} from '../Utils/Regex'
+import {numeric} from '../Utils/numeric'
  class LoginUsingOTP extends Component {
 
     // eslint-disable-next-line no-useless-constructor
@@ -25,6 +27,41 @@ import {withRouter}from 'react-router-dom'
             showOTP:false
         });
         setTimer(1);
+        this.enterNumberOnly= this.enterNumberOnly.bind(this)
+        this.state={
+            loading:false,
+            showOTP:true,
+            mobValid:true,
+        }
+    }
+    enterNumberOnly(){
+        var mob = document.getElementById("mobile");
+        var invalidChar=/[^0-9]/gi;
+        if(invalidChar.test(mob.value)){
+           
+            var  newstring = mob.value.replace(invalidChar, "");
+            mob.value=newstring;
+            }
+    }
+    checkMobile= ()=>{
+        var mob= document.getElementById("mobile").value;
+        if(mobileRegex.test(mob)){
+           
+            this.setState({
+                // loading:true,
+                showOTP:false,
+                mobValid:true
+            });
+            setTimer(1);
+        }
+        else{
+          
+            this.setState({
+                // loading:true,
+                mobValid:false
+            });
+        }
+        
     }
 
     checkLoginWithOTP=  ()=>{
@@ -55,6 +92,14 @@ import {withRouter}from 'react-router-dom'
                     placeholder="Enter valid mobile number"
                     />
                     <span hidden={true} className="error-msg"></span>
+                    id="mobile"
+                    maxLength="10"
+                    type="text"
+                    className="form-control mb-3 numeric"
+                    placeholder="Enter valid 10 digit mobile number"
+                    onKeyUp={this.enterNumberOnly}
+                    />
+                    <span hidden={this.state.mobValid} className="error-msg">enter valid mobile number</span>
                 </div>
                 <div hidden={this.state.showOTP} style={{marginTop:20}} >
                         <label className="control-lable" htmlFor="OTP">Enter Otp send to your email/mobile</label>

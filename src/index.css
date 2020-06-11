@@ -82,6 +82,16 @@ html,
   height: auto;
   /* height: 90vh; */
   margin-bottom: 30px;
+  height: auto;
+  /* height: 90vh; */
+  margin-bottom: 30px;
+}
+
+.resetPwd .auth-wrapper{
+  width: 100%;
+  /* height: auto; */
+  height: 90vh;
+  margin-bottom: 30px;
 }
 
 .navbar-light {

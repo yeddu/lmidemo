@@ -74,8 +74,8 @@ function Login(props) {
               Forgot <Link to="/resetPWD">password?</Link>
             </p>
           </div>
-
-          <LoginUsingOTP />
+           
+           <LoginUsingOTP />
         </div>
       </div>
     </div>
