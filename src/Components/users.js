@@ -12,9 +12,9 @@ class Users extends Component {
   }
   render() {
     return (
-      <div className="mt-3">
+      <div className="mt-3 container w-100">
         <h3 className="text-center">Users</h3>
-        <table className="table border">
+        <table className="table border " style={{ maxWidth: "100%" }}>
           <thead>
             <tr>
               <th>User Name</th>
