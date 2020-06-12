@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import PrivateRoute from "../Utils/PrivateRoute";
 import Users from "./users";
 import SideNav from "./sideNav";
+import Reports from "./report";
 
 class Dashboard extends Component {
   state = {
@@ -24,8 +25,9 @@ class Dashboard extends Component {
         <div className="container-fluid">
           <div className="row">
             <SideNav displaySideNav={this.state.displaySideNav} />
-            <div className="col container" style={{ height: "100vh" }}>
+            <div className="col container" style={{ height: "auto" }}>
               <Switch>
+                <Reports exact path="/dashboard" />
                 <PrivateRoute
                   path="/dashboard/veiwUsers"
                   component={Users}

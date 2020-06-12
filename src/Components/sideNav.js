@@ -13,8 +13,9 @@ class SideNav extends Component {
         }
         style={{
           padding: "0px",
-          height: "100vh",
           backgroundColor: "#F0F2F1",
+          minHeight: "100vh",
+          height: "auto",
         }}
       >
         <h5 className="side-nav-heading m-0">Menu</h5>
