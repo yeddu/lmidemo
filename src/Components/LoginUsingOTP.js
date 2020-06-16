@@ -17,6 +17,7 @@ import {numeric} from '../Utils/numeric'
         this.state={
             loading:false,
             showOTP:true,
+            mobValid:true
         }
     }
     
@@ -86,12 +87,6 @@ import {numeric} from '../Utils/numeric'
                 <div >
                     <label className="control-lable" htmlFor="res">Mobile number</label>
                     <input
-                    id="res"
-                    type="text"
-                    className="form-control mb-3"
-                    placeholder="Enter valid mobile number"
-                    />
-                    <span hidden={true} className="error-msg"></span>
                     id="mobile"
                     maxLength="10"
                     type="text"
