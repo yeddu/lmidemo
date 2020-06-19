@@ -2,37 +2,38 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
 import NavBar from "./navbar";
+import { Switch, Route } from "react-router-dom";
+import PrivateRoute from "../Utils/PrivateRoute";
+import Users from "./users";
+import SideNav from "./sideNav";
+import Reports from "./report";
 
 class Dashboard extends Component {
-  state = {};
+  state = {
+    displaySideNav: false,
+  };
+
+  togglesidenav = ({ displaySideNav: prevstate } = this.state) => {
+    this.setState({ displaySideNav: !prevstate });
+    console.log(prevstate);
+  };
+
   render() {
     return (
-      <div>
-        <NavBar />
+      <div className="w-100">
+        <NavBar togglenav={this.togglesidenav} />
         <div className="container-fluid">
           <div className="row">
-            <div
-              className="col-2"
-              style={{
-                padding: "0px",
-                height: "100vh",
-                backgroundColor: "#F0F2F1",
-              }}
-            >
-              <h5 className="side-nav-heading m-0">Menu</h5>
-              <ul className="side-nav">
-                <li className="side-nav-item">
-                  <Link to="">NavLink1</Link>
-                </li>
-                <li className="side-nav-item">
-                  <Link to="">NavLink1</Link>
-                </li>
-                <li className="side-nav-item">
-                  <Link to="">NavLink1</Link>
-                </li>
-              </ul>
+            <SideNav displaySideNav={this.state.displaySideNav} />
+            <div className="col container" style={{ height: "auto" }}>
+              <Switch>
+                <Reports exact path="/dashboard" />
+                <PrivateRoute
+                  path="/dashboard/veiwUsers"
+                  component={Users}
+                ></PrivateRoute>
+              </Switch>
             </div>
-            <div className="col"></div>
           </div>
         </div>
       </div>

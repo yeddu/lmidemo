@@ -15,45 +15,16 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header-main">
-        <div className="logo-section col-6">
-          <ul className="logo-main m-0">
-            <li>
-              <span>
-                <h1 className="mt-2" style={{ color: "white" }}>
-                  LOGO
-                </h1>
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div className="user-info-log col-6" style={{ padding: "0px" }}>
-          {getUser() && (
-            <ul>
+      <div className="container-fluid">
+        <div className="header-main row">
+          <div className="logo-section col-6">
+            <ul className="logo-main">
               <li>
-                <input
-                  type="button"
-                  className="btn-logout"
-                  onClick={() => {
-                    this.handleLogout();
-                  }}
-                  value="Logout"
-                />
-              </li>
-              <li>
-                <span>Welcome ,{getUser().name}</span>
-              </li>
-              <li>
-                <span>Last Logged :{this.state.lastLogged}</span>
-              </li>
-            </ul>
-          )}
-          {getUser() == null && (
-            <ul>
-              <li className="nav-item">
-                <Link className="nav-link d-inline" to={"/login"}>
-                  Login
-                </Link>
+                <span>
+                  <h1 className="mt-2" style={{ color: "white" }}>
+                    LOGO
+                  </h1>
+                </span>
               </li>
               <li className="nav-item">
                 <Link className="nav-link d-inline" to={"/sign-up"}>
@@ -61,7 +32,42 @@ class Header extends Component {
                 </Link>
               </li>
             </ul>
-          )}
+          </div>
+          <div className="user-info-log col-6" style={{ padding: "0px" }}>
+            {getUser() && (
+              <ul className="">
+                <li>
+                  <input
+                    type="button"
+                    className="btn-logout"
+                    onClick={() => {
+                      this.handleLogout();
+                    }}
+                    value="Logout"
+                  />
+                </li>
+                <li>
+                  <span>Welcome {getUser().name}</span>
+                </li>
+                <li>
+                  <span>Last Logged :{this.state.lastLogged}</span>
+                </li>
+              </ul>
+            )}
+            {getUser() == null && (
+              <ul className="mt-2">
+                <li className="">
+                  <Link
+                    className="nav-link d-inline py-1"
+                    to={"/login"}
+                    style={{ backgroundColor: "#e74b23" }}
+                  >
+                    Login
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     );

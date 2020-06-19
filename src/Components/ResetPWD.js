@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/styles.css';
 import Axios from 'axios';
-import {setTimer} from '../Utils/Common'
+import {setTimer} from '../Utils/Common';
+import Skeleton from 'react-loading-skeleton'
 
 
 const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
@@ -14,16 +15,31 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
     constructor(props){
         super(props);
         this.resetpWDOnChange= this.resetpWDOnChange.bind(this);
+        this.togglePwdView= this.togglePwdView.bind(this);
         this.state={
             valid:true,
             nPwdValid:true,
             cNPwdValid:true,
             hideReset:false,
             hidePAndConfirmPWD:true,
+            didnotMatchAtt:true,
+            validPWD:true,
+            empty:true
         }
         
     }
-    
+     
+    togglePwdView(){
+        
+       var x=document.getElementById("NPwd");
+       if(x.type==="password"){
+           x.type="text";
+       }
+       else{
+           x.type="password"
+       }
+    }
+
     handleReset=  ()=>{
        
        if(this.state.hidePAndConfirmPWD){
@@ -59,8 +75,26 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
     handleResetPassword(){
         var pwd=document.getElementById("NPwd").value;
         var cpwd= document.getElementById("CNPwd").value;
-        if(pwd=== cpwd){
+        if((pwd=== cpwd)&&(pwd!==''&& cpwd!=='')){
             this.props.history.push("/login");
+            this.setState({
+                nPwdValid:true,
+                didnotMatchAtt:false
+            })
+        }
+        else{
+            if(pwd==='' && cpwd===''){
+            this.setState({
+                 nPwdValid:false,
+
+            })}
+            else{
+                this.setState({
+                    didnotMatchAtt:false,
+                    nPwdValid:true
+   
+               })   
+            }
         }
     }
 
@@ -84,12 +118,15 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
      render() {
          
         return (
+            <div className="resetPwd">
             <div className="auth-wrapper mb-3">
+             
             <div className=" auth-inner">
+            
                 <div className="form-group required">
                     <div hidden={this.state.hideReset}>
                     <label className="control-lable" htmlFor="res">Reset password</label>
-                    <input
+                    <input 
                     id="res"
                     type="text"
                     className="form-control mb-3"
@@ -107,7 +144,7 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
                         className="form-control mb-3"
                         placeholder="Enter your new password"
                         />
-                        <button className="btn-mask-pwd"></button>
+                        <button className="btn-mask-pwd btn-secondary " onClick={this.togglePwdView}></button>
                         </div>
                         <span hidden={this.state.nPwdValid} className="error-msg">enter a password</span>
                         </div>
@@ -119,8 +156,9 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
                         className="form-control mb-3"
                         placeholder="Re enter new password"
                         />
-                        <span hidden={this.state.cNPwdValid} className="error-msg">Password doesn't match</span>
+                        <span hidden={this.state.didnotMatchAtt} className="error-msg">Password doesn't match</span>
                         </div>
+                        
                         <div >
                         <label className="control-lable" htmlFor="OTP">Enter Otp send to your email/mobile</label>
                         <input
@@ -130,6 +168,7 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
                         placeholder=""
                         />                        
                         </div>
+                        
                         <div className="otp-timer-text">
                             <p> sent otp will work for 2 minutes only </p>
                             <p id="timer"></p>
@@ -141,11 +180,12 @@ const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"
                
                 <button id="restBtn"  className="btn-primary ml-6" onClick={this.handleReset} > Reset</button>
                 <div id="timer" className="time"></div>
-
+                
+            </div>
             </div>
         </div>
         )
     }
 }
 
-export default ResetPWD
+export default ResetPWD;
