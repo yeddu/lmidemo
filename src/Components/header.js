@@ -55,6 +55,11 @@ class Header extends Component {
                   Login
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link d-inline" to={"/sign-up"}>
+                  Signup
+                </Link>
+              </li>
             </ul>
           )}
         </div>

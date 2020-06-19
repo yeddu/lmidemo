@@ -85,6 +85,7 @@ class Register extends Component {
   render() {
     const { errors, formValid } = this.state;
     return (
+      <div className="auth-inner">
       <div className='wrapper'>
         <div className='form-group'>
           <h2>Create Account</h2>
@@ -116,6 +117,7 @@ class Register extends Component {
             {this.state.errorCount !== null ? <p className="form-status">Form is {formValid ? 'valid ✅' : 'invalid ❌'}</p> : 'Form not submitted'}
           </form>
         </div>
+      </div>
       </div>
     );
   }
